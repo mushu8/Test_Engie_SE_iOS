@@ -20,11 +20,64 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashcreen" translatesAutoresizingMaskIntoConstraints="NO" id="6qA-U7-0Fz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwz-jd-sHm" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="161" y="357.5" width="53" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="jIu-F4-BVY"/>
+                                    <constraint firstAttribute="height" constant="48" id="lWC-Sm-W4g"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pwz-jd-sHm" firstAttribute="centerY" secondItem="6qA-U7-0Fz" secondAttribute="centerY" constant="48" id="CdN-lj-oN8"/>
+                            <constraint firstItem="Pwz-jd-sHm" firstAttribute="centerX" secondItem="6qA-U7-0Fz" secondAttribute="centerX" id="Dcn-cf-aeg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6qA-U7-0Fz" secondAttribute="bottom" id="Kse-Y5-Umj"/>
+                            <constraint firstItem="6qA-U7-0Fz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gJo-Q8-CYb"/>
+                            <constraint firstAttribute="trailing" secondItem="6qA-U7-0Fz" secondAttribute="trailing" id="tR3-L1-Hjb"/>
+                            <constraint firstItem="6qA-U7-0Fz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yeg-n9-YZZ"/>
+                        </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="668"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Pwz-jd-sHm" id="D6K-ri-jpp"/>
+                        <segue destination="nPr-CG-SX9" kind="custom" identifier="SplashToHomeAuthSegueIdentifier" customClass="SplashToAuthSegue" id="TLz-3C-Uun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="Ra3-ke-GHx"/>
             </objects>
+            <point key="canvasLocation" x="-551" y="-8"/>
+        </scene>
+        <!--Home Auth View Controller-->
+        <scene sceneID="jUA-3w-jJw">
+            <objects>
+                <viewController id="nPr-CG-SX9" customClass="HomeAuthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8u3-sF-13H"/>
+                        <viewControllerLayoutGuide type="bottom" id="eSa-lT-Kgy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W4f-5Z-G4D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RER-ol-55J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="6"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashcreen" width="750" height="1334"/>
+    </resources>
 </document>

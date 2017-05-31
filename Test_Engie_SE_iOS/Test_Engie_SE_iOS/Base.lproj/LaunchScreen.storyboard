@@ -21,27 +21,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RPh-xE-Ml8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashcreen" translatesAutoresizingMaskIntoConstraints="NO" id="RPh-xE-Ml8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jGn-ep-akD">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jGn-ep-akD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8A2-Ce-4H6"/>
                             <constraint firstItem="RPh-xE-Ml8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="EQA-p9-LWj"/>
-                            <constraint firstItem="jGn-ep-akD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WLA-93-pKp"/>
                             <constraint firstItem="RPh-xE-Ml8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Z4F-bb-Ijf"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="RPh-xE-Ml8" secondAttribute="bottom" id="hFX-zb-Waz"/>
                             <constraint firstAttribute="trailing" secondItem="RPh-xE-Ml8" secondAttribute="trailing" id="zIC-bp-Hrt"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashcreen" width="750" height="1334"/>
+    </resources>
 </document>
