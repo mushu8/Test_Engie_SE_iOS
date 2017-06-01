@@ -14,13 +14,15 @@
 		6F3630291EDF56060001CC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F3630281EDF56060001CC0D /* Assets.xcassets */; };
 		6F36302C1EDF56060001CC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F36302A1EDF56060001CC0D /* LaunchScreen.storyboard */; };
 		6F3630371EDF56060001CC0D /* Test_Engie_SE_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3630361EDF56060001CC0D /* Test_Engie_SE_iOSTests.m */; };
-		6F6316901EDF68FD00D5EC71 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63168F1EDF68FD00D5EC71 /* SplashScreenViewController.m */; };
 		6F6316941EDF696A00D5EC71 /* SplashToAuthSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6316931EDF696A00D5EC71 /* SplashToAuthSegue.m */; };
 		6F6316981EDF6BF400D5EC71 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6316961EDF6BF400D5EC71 /* AuthViewController.m */; };
 		6FDDEB631EE02CB5002F317F /* HomeAuthSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB621EE02CB5002F317F /* HomeAuthSegue.m */; };
 		6FDDEB671EE02D9D002F317F /* AuthHomeChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB661EE02D9D002F317F /* AuthHomeChildViewController.m */; };
 		6FDDEB6C1EE03457002F317F /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB6B1EE03457002F317F /* UIView+AutoLayout.m */; };
 		6FDDEB6F1EE03F95002F317F /* AuthSigninChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB6E1EE03F95002F317F /* AuthSigninChildViewController.m */; };
+		6FDDEB741EE05208002F317F /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB731EE05208002F317F /* SplashScreenViewController.m */; };
+		6FDDEB781EE05225002F317F /* RemoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB771EE05225002F317F /* RemoteManager.m */; };
+		6FDDEB7C1EE0547A002F317F /* EmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB7B1EE0547A002F317F /* EmailValidator.m */; };
 		9A736998C5D3FEF1677C0D02 /* Pods_Test_Engie_SE_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9D894D42A1F0D941EDF66F /* Pods_Test_Engie_SE_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +53,6 @@
 		6F3630381EDF56060001CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F54BA251EE023B1003E81AC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		6F54BA271EE023E0003E81AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		6F63168E1EDF68FD00D5EC71 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashScreenViewController.h; path = SplashScreen/SplashScreenViewController.h; sourceTree = "<group>"; };
-		6F63168F1EDF68FD00D5EC71 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashScreenViewController.m; path = SplashScreen/SplashScreenViewController.m; sourceTree = "<group>"; };
 		6F6316921EDF696A00D5EC71 /* SplashToAuthSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashToAuthSegue.h; sourceTree = "<group>"; };
 		6F6316931EDF696A00D5EC71 /* SplashToAuthSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashToAuthSegue.m; sourceTree = "<group>"; };
 		6F6316951EDF6BF400D5EC71 /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthViewController.h; path = Auth/AuthViewController.h; sourceTree = "<group>"; };
@@ -65,6 +65,12 @@
 		6FDDEB6B1EE03457002F317F /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		6FDDEB6D1EE03F95002F317F /* AuthSigninChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthSigninChildViewController.h; path = Auth/AuthSigninChildViewController.h; sourceTree = "<group>"; };
 		6FDDEB6E1EE03F95002F317F /* AuthSigninChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthSigninChildViewController.m; path = Auth/AuthSigninChildViewController.m; sourceTree = "<group>"; };
+		6FDDEB721EE05208002F317F /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		6FDDEB731EE05208002F317F /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		6FDDEB761EE05225002F317F /* RemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteManager.h; sourceTree = "<group>"; };
+		6FDDEB771EE05225002F317F /* RemoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteManager.m; sourceTree = "<group>"; };
+		6FDDEB7A1EE0547A002F317F /* EmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailValidator.h; sourceTree = "<group>"; };
+		6FDDEB7B1EE0547A002F317F /* EmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailValidator.m; sourceTree = "<group>"; };
 		93D1BF3884A368ECAEE7292D /* Pods-Test_Engie_SE_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_Engie_SE_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test_Engie_SE_iOS/Pods-Test_Engie_SE_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EC9D894D42A1F0D941EDF66F /* Pods_Test_Engie_SE_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_Engie_SE_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDAD8835178DE514E7EB6ED /* Pods-Test_Engie_SE_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_Engie_SE_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test_Engie_SE_iOSTests/Pods-Test_Engie_SE_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,8 +162,9 @@
 		6F63168D1EDF68FD00D5EC71 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6F63168E1EDF68FD00D5EC71 /* SplashScreenViewController.h */,
-				6F63168F1EDF68FD00D5EC71 /* SplashScreenViewController.m */,
+				6FDDEB791EE0546F002F317F /* Validator */,
+				6FDDEB751EE05215002F317F /* RemoteManager */,
+				6FDDEB711EE05208002F317F /* SplashScreen */,
 				6FDDEB641EE02D71002F317F /* Auth */,
 			);
 			path = Components;
@@ -194,6 +201,33 @@
 				6FDDEB6B1EE03457002F317F /* UIView+AutoLayout.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		6FDDEB711EE05208002F317F /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6FDDEB721EE05208002F317F /* SplashScreenViewController.h */,
+				6FDDEB731EE05208002F317F /* SplashScreenViewController.m */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		6FDDEB751EE05215002F317F /* RemoteManager */ = {
+			isa = PBXGroup;
+			children = (
+				6FDDEB761EE05225002F317F /* RemoteManager.h */,
+				6FDDEB771EE05225002F317F /* RemoteManager.m */,
+			);
+			path = RemoteManager;
+			sourceTree = "<group>";
+		};
+		6FDDEB791EE0546F002F317F /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				6FDDEB7A1EE0547A002F317F /* EmailValidator.h */,
+				6FDDEB7B1EE0547A002F317F /* EmailValidator.m */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		76A5BE049D9A8ADA0A42E823 /* Pods */ = {
@@ -409,14 +443,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3630211EDF56060001CC0D /* AppDelegate.m in Sources */,
+				6FDDEB781EE05225002F317F /* RemoteManager.m in Sources */,
 				6FDDEB631EE02CB5002F317F /* HomeAuthSegue.m in Sources */,
+				6FDDEB741EE05208002F317F /* SplashScreenViewController.m in Sources */,
 				6FDDEB671EE02D9D002F317F /* AuthHomeChildViewController.m in Sources */,
 				6F36301E1EDF56060001CC0D /* main.m in Sources */,
 				6FDDEB6C1EE03457002F317F /* UIView+AutoLayout.m in Sources */,
 				6FDDEB6F1EE03F95002F317F /* AuthSigninChildViewController.m in Sources */,
-				6F6316901EDF68FD00D5EC71 /* SplashScreenViewController.m in Sources */,
 				6F6316981EDF6BF400D5EC71 /* AuthViewController.m in Sources */,
 				6F6316941EDF696A00D5EC71 /* SplashToAuthSegue.m in Sources */,
+				6FDDEB7C1EE0547A002F317F /* EmailValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

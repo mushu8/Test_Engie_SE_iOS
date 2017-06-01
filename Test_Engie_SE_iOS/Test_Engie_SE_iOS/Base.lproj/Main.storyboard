@@ -226,7 +226,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfT-7v-TUB">
                                 <rect key="frame" x="16" y="0.0" width="343" height="106"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-Rl-BFK" userLabel="background view email field">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-Rl-BFK" userLabel="background view name field">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -235,14 +235,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d92-P2-RCL" userLabel="email text field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nom (falcutatif)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d92-P2-RCL" userLabel="name text field">
                                         <rect key="frame" x="4" y="4" width="335" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-L4-jCO" userLabel="background view password field">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-L4-jCO" userLabel="background view email field">
                                         <rect key="frame" x="0.0" y="33" width="343" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -251,7 +251,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5K-nI-S8t" userLabel="password text field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail (obligatoire)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5K-nI-S8t" userLabel="email text field">
                                         <rect key="frame" x="4" y="37" width="335" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -267,6 +267,9 @@
                                             <action selector="signinAction:" destination="S1Q-BB-QLU" eventType="touchUpInside" id="yEn-gc-loW"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NH2-NA-HsD">
+                                        <rect key="frame" x="307" y="81" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -288,6 +291,8 @@
                                     <constraint firstAttribute="bottom" secondItem="pBf-kZ-oV2" secondAttribute="bottom" id="n4S-J1-6Lp"/>
                                     <constraint firstItem="pBf-kZ-oV2" firstAttribute="trailing" secondItem="WSw-Rl-BFK" secondAttribute="trailing" id="qAa-ff-kW7"/>
                                     <constraint firstItem="WSw-Rl-BFK" firstAttribute="top" secondItem="WfT-7v-TUB" secondAttribute="top" id="smy-Bu-vyH"/>
+                                    <constraint firstItem="NH2-NA-HsD" firstAttribute="trailing" secondItem="pBf-kZ-oV2" secondAttribute="trailing" constant="-16" id="veS-QD-sQA"/>
+                                    <constraint firstItem="NH2-NA-HsD" firstAttribute="centerY" secondItem="pBf-kZ-oV2" secondAttribute="centerY" id="xuY-2Z-hlp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -304,6 +309,12 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="106"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="a5K-nI-S8t" id="agO-QS-OnR"/>
+                        <outlet property="nameTextField" destination="d92-P2-RCL" id="pei-sA-HH4"/>
+                        <outlet property="remoteActivityIndicator" destination="NH2-NA-HsD" id="Ble-Xl-ORU"/>
+                        <outlet property="signupButton" destination="pBf-kZ-oV2" id="YdI-CS-uwl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXB-TS-NSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

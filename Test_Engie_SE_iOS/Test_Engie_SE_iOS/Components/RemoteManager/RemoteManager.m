@@ -7,11 +7,16 @@
 //
 
 #import "RemoteManager.h"
-
+#import <AFNetworking/AFNetworking.h>
 
 NSString *const RemoteManagerSigninWillDoNotification   = @"RemoteManagerSigninWillDoNotification";
 NSString *const RemoteManagerSigninFinishedNotification = @"RemoteManagerSigninFinishedNotification";
 NSString *const RemoteManagerSigninFailedNotification   = @"RemoteManagerSigninFailedNotification";
+
+@interface RemoteManager()
+@property (nonatomic, strong) NSURLConnection *signinConnection;
+@end
+
 
 @implementation RemoteManager
 
@@ -31,12 +36,43 @@ static RemoteManager *_sharedInstance = nil;
 
 #pragma mark - Signin service
 
-- (void)doSigninWithEmail:(NSString *)email {
+- (void)doSigninWithEmail:(NSString *)email andName:(NSString *)name {
 
     [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninWillDoNotification object:self];
 
+    NSString *URLString = @"http://jsonplaceholder.typicode.com/users";
+    NSDictionary *parameters = @{@"user": @{@"email": email, @"name": name}};
+
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
+    request.timeoutInterval = 10;
+
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+
+    self.signinConnection = connection;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFinishedNotification object:self];
+}
+
+#pragma mark - NSURLConnectionDelegate
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    if (connection == self.signinConnection) {
+        //singin failure handler
+        [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFailedNotification object:self];
+    }
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+
+    if (connection == self.signinConnection) {
+        //singin success handler
+
+        //TODO: parse response and persist data
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFinishedNotification object:self];
+    }
+
 }
 
 @end

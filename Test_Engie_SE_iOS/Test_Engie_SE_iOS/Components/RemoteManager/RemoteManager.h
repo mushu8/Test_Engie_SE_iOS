@@ -16,6 +16,6 @@ extern NSString *const RemoteManagerSigninFailedNotification;
 
 + (instancetype)sharedInstance;
 
-- (void)doSigninWithEmail:(NSString *)email;
+- (void)doSigninWithEmail:(NSString *)email andName:(NSString *)name;
 
 @end

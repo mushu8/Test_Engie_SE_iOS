@@ -7,8 +7,15 @@
 //
 
 #import "AuthSigninChildViewController.h"
+#import "RemoteManager.h"
+#import "EmailValidator.h"
 
 @interface AuthSigninChildViewController ()
+
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) IBOutlet UIButton *signupButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *remoteActivityIndicator;
 
 @end
 
@@ -16,18 +23,56 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+
 }
 
 #pragma mark - IBActions
 
 - (IBAction)signinAction:(id)sender {
+    [self doSignin];
 }
 
 #pragma mark - Business
 
+- (void)setupNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteSigninWillDo:) name:RemoteManagerSigninWillDoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteSigninFinished:) name:RemoteManagerSigninFinishedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteSigninFailed:) name:RemoteManagerSigninFailedNotification object:nil];
+}
 - (void)doSignin {
-    
+    // validate fields
+    NSString *email = self.emailTextField.text;
+
+    if ([[EmailValidator sharedInstance] validateEmail:email]) {
+        [[RemoteManager sharedInstance] doSigninWithEmail:email andName:self.nameTextField.text];
+    }
+    else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Attention"
+                                                                                 message:@"L'email saisi n'est pas valide"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
+#pragma mark - UI
+
+- (void)prepareUIForRemoteActivity:(BOOL)activated {
+    self.view.userInteractionEnabled = !activated;
+    self.remoteActivityIndicator.hidden = !activated;
+}
+
+#pragma mark - Notifications callback
+- (void)remoteSigninWillDo:(NSNotification *)notification {
+    [self prepareUIForRemoteActivity:YES];
+}
+
+- (void)remoteSigninFinished:(NSNotification *)notification {
+    [self prepareUIForRemoteActivity:NO];
+}
+
+- (void)remoteSigninFailed:(NSNotification *)notification {
+    [self prepareUIForRemoteActivity:NO];
+}
 @end
