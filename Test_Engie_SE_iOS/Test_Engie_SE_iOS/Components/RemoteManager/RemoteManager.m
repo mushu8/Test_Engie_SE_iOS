@@ -17,6 +17,8 @@ NSString *const RemoteManagerSignupFailedNotification   = @"RemoteManagerSignupF
 
 @interface RemoteManager()
 
+#define SIGNUP_URL_STRING @"http://jsonplaceholder.typicode.com/users"
+
 @property (nonatomic, strong) NSURLConnection *signupConnection;
 @property (nonatomic, strong) NSMutableData *responseData;
 
@@ -52,7 +54,7 @@ static RemoteManager *_sharedInstance = nil;
 
     [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupWillDoNotification object:self];
 
-    NSString *URLString = @"http://jsonplaceholder.typicode.com/users";
+    NSString *URLString = SIGNUP_URL_STRING;
     NSDictionary *parameters = @{@"user": @{@"email": email, @"name": name}};
 
     NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
