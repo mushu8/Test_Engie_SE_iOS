@@ -47,6 +47,8 @@
 		6F3630321EDF56060001CC0D /* Test_Engie_SE_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_Engie_SE_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3630361EDF56060001CC0D /* Test_Engie_SE_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Engie_SE_iOSTests.m; sourceTree = "<group>"; };
 		6F3630381EDF56060001CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F54BA251EE023B1003E81AC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		6F54BA271EE023E0003E81AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		6F63168E1EDF68FD00D5EC71 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		6F63168F1EDF68FD00D5EC71 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		6F6316921EDF696A00D5EC71 /* SplashToAuthSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashToAuthSegue.h; sourceTree = "<group>"; };
@@ -413,6 +415,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6F3630261EDF56060001CC0D /* Base */,
+				6F54BA251EE023B1003E81AC /* fr */,
+				6F54BA271EE023E0003E81AC /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -432,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -479,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
