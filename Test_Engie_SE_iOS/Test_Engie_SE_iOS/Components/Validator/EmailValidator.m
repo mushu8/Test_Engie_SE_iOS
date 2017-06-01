@@ -10,6 +10,8 @@
 
 @implementation EmailValidator
 
+#pragma mark - Singleton pattern
+
 static EmailValidator *_sharedInstance = nil;
 
 + (instancetype)sharedInstance {

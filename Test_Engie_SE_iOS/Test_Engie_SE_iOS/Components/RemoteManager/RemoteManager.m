@@ -20,7 +20,7 @@ NSString *const RemoteManagerSigninFailedNotification   = @"RemoteManagerSigninF
 
 @implementation RemoteManager
 
-#pragma mark singleton
+#pragma mark - Singleton pattern
 
 static RemoteManager *_sharedInstance = nil;
 
@@ -69,7 +69,7 @@ static RemoteManager *_sharedInstance = nil;
         //singin success handler
 
         //TODO: parse response and persist data
-        
+
         [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFinishedNotification object:self];
     }
 

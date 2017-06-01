@@ -23,6 +23,7 @@
 		6FDDEB741EE05208002F317F /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB731EE05208002F317F /* SplashScreenViewController.m */; };
 		6FDDEB781EE05225002F317F /* RemoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB771EE05225002F317F /* RemoteManager.m */; };
 		6FDDEB7C1EE0547A002F317F /* EmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB7B1EE0547A002F317F /* EmailValidator.m */; };
+		6FDDEB7F1EE06207002F317F /* UIAlertController+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDDEB7E1EE06207002F317F /* UIAlertController+Factory.m */; };
 		9A736998C5D3FEF1677C0D02 /* Pods_Test_Engie_SE_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9D894D42A1F0D941EDF66F /* Pods_Test_Engie_SE_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		6FDDEB771EE05225002F317F /* RemoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteManager.m; sourceTree = "<group>"; };
 		6FDDEB7A1EE0547A002F317F /* EmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailValidator.h; sourceTree = "<group>"; };
 		6FDDEB7B1EE0547A002F317F /* EmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailValidator.m; sourceTree = "<group>"; };
+		6FDDEB7D1EE06207002F317F /* UIAlertController+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Factory.h"; sourceTree = "<group>"; };
+		6FDDEB7E1EE06207002F317F /* UIAlertController+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Factory.m"; sourceTree = "<group>"; };
 		93D1BF3884A368ECAEE7292D /* Pods-Test_Engie_SE_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_Engie_SE_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test_Engie_SE_iOS/Pods-Test_Engie_SE_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EC9D894D42A1F0D941EDF66F /* Pods_Test_Engie_SE_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_Engie_SE_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDAD8835178DE514E7EB6ED /* Pods-Test_Engie_SE_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_Engie_SE_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test_Engie_SE_iOSTests/Pods-Test_Engie_SE_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			children = (
 				6FDDEB6A1EE03457002F317F /* UIView+AutoLayout.h */,
 				6FDDEB6B1EE03457002F317F /* UIView+AutoLayout.m */,
+				6FDDEB7D1EE06207002F317F /* UIAlertController+Factory.h */,
+				6FDDEB7E1EE06207002F317F /* UIAlertController+Factory.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				6F3630211EDF56060001CC0D /* AppDelegate.m in Sources */,
 				6FDDEB781EE05225002F317F /* RemoteManager.m in Sources */,
 				6FDDEB631EE02CB5002F317F /* HomeAuthSegue.m in Sources */,
+				6FDDEB7F1EE06207002F317F /* UIAlertController+Factory.m in Sources */,
 				6FDDEB741EE05208002F317F /* SplashScreenViewController.m in Sources */,
 				6FDDEB671EE02D9D002F317F /* AuthHomeChildViewController.m in Sources */,
 				6F36301E1EDF56060001CC0D /* main.m in Sources */,

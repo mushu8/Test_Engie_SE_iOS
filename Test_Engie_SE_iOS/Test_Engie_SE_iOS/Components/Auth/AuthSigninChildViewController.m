@@ -9,6 +9,8 @@
 #import "AuthSigninChildViewController.h"
 #import "RemoteManager.h"
 #import "EmailValidator.h"
+#import "UIAlertController+Factory.h"
+
 
 @interface AuthSigninChildViewController ()
 
@@ -48,10 +50,7 @@
         [[RemoteManager sharedInstance] doSigninWithEmail:email andName:self.nameTextField.text];
     }
     else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Attention"
-                                                                                 message:@"L'email saisi n'est pas valide"
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        UIAlertController *alertController = [UIAlertController simpleAlertControllerWithTitle:@"Attention" andMessage:@"L'email saisi n'est pas valide"];
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
@@ -74,5 +73,9 @@
 
 - (void)remoteSigninFailed:(NSNotification *)notification {
     [self prepareUIForRemoteActivity:NO];
+
+    UIAlertController *alertController = [UIAlertController simpleAlertControllerWithTitle:@"Attention" andMessage:@"L'authetification a échoué"];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
+
 @end
