@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "EmailValidator.h"
 
 @interface Test_Engie_SE_iOSTests : XCTestCase
 
@@ -24,16 +25,18 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testEmailValidatorWithCorrectEmail {
+    EmailValidator *emailValidator = [EmailValidator sharedInstance];
+    NSString *emailToValidate = @"bob@gogole.fr";
+
+    XCTAssertTrue([emailValidator validateEmail:emailToValidate], @"cannot validate a correct email");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testEmailValidatorWithInCorrectEmail {
+    EmailValidator *emailValidator = [EmailValidator sharedInstance];
+    NSString *emailToValidate = @"bobgogole.fr";
+
+    XCTAssertFalse([emailValidator validateEmail:emailToValidate], @"email validator validates an incorrect email");
 }
 
 @end
