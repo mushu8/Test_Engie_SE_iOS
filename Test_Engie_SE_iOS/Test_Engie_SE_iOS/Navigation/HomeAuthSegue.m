@@ -28,7 +28,7 @@
     secondVCView.userInteractionEnabled = NO;
 
     // Animate the transition.
-    [UIView animateWithDuration:0.4
+    [UIView animateWithDuration:0.3
                      animations:^{
                          secondVCView.alpha = 1;
                      }

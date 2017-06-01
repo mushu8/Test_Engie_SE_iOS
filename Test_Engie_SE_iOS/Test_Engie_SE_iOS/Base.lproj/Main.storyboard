@@ -96,6 +96,14 @@
                                     <action selector="contactAgentAction:" destination="nPr-CG-SX9" eventType="touchUpInside" id="DGF-oW-5ri"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An4-UN-TJh">
+                                <rect key="frame" x="16" y="28" width="30" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="backAction:" destination="nPr-CG-SX9" eventType="touchUpInside" id="uCJ-2L-eNU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -110,8 +118,10 @@
                             <constraint firstItem="cw8-3D-Qqg" firstAttribute="trailing" secondItem="WcB-Wu-6Yp" secondAttribute="trailing" id="HJH-96-at4"/>
                             <constraint firstItem="eSa-lT-Kgy" firstAttribute="top" secondItem="WcB-Wu-6Yp" secondAttribute="bottom" constant="20" id="LWk-tY-Izq"/>
                             <constraint firstAttribute="trailing" secondItem="Zv3-jt-Nmi" secondAttribute="trailing" id="NEo-MC-7qm"/>
+                            <constraint firstItem="An4-UN-TJh" firstAttribute="leading" secondItem="W4f-5Z-G4D" secondAttribute="leadingMargin" id="bJI-vC-BAh"/>
                             <constraint firstItem="HEk-J9-jRq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8u3-sF-13H" secondAttribute="bottom" id="d6J-qN-qCZ"/>
                             <constraint firstItem="WcB-Wu-6Yp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W4f-5Z-G4D" secondAttribute="leadingMargin" constant="8" id="ghZ-QF-ZXH"/>
+                            <constraint firstItem="An4-UN-TJh" firstAttribute="top" secondItem="8u3-sF-13H" secondAttribute="bottom" constant="8" id="hMz-Bl-Q7Z"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WcB-Wu-6Yp" secondAttribute="trailing" constant="8" id="ilD-nJ-0js"/>
                             <constraint firstItem="cw8-3D-Qqg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HEk-J9-jRq" secondAttribute="bottom" constant="8" id="j2V-gT-3Bx"/>
                             <constraint firstItem="WcB-Wu-6Yp" firstAttribute="centerX" secondItem="Zv3-jt-Nmi" secondAttribute="centerX" id="pYZ-99-gOx"/>
@@ -119,6 +129,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="An4-UN-TJh" id="iQw-R8-Hbf"/>
                         <outlet property="contentView" destination="HEk-J9-jRq" id="cc3-CG-uhP"/>
                     </connections>
                 </viewController>
@@ -139,10 +150,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJC-zv-XrD" userLabel="center view">
-                                <rect key="frame" x="16" y="0.0" width="343" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htV-bL-bew" userLabel="Signin button">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htV-bL-bew" userLabel="Signup button">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.16862745100000001" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="BWv-1O-5ew"/>
@@ -160,11 +171,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signinAction:" destination="mgB-CF-i2M" eventType="touchUpInside" id="hzU-IL-Hok"/>
+                                            <action selector="signupAction:" destination="mgB-CF-i2M" eventType="touchUpInside" id="P11-wK-Rfe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMi-kj-Z1C" userLabel="Signup button">
-                                        <rect key="frame" x="0.0" y="53" width="343" height="45"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMi-kj-Z1C" userLabel="Visit website button">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <state key="normal" title="JE SOUHAITE REJOINDRE ELEC WEEKEND+">
@@ -176,7 +187,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signupAction:" destination="mgB-CF-i2M" eventType="touchUpInside" id="mH5-0v-BLj"/>
+                                            <action selector="visitWebSiteAction:" destination="mgB-CF-i2M" eventType="touchUpInside" id="Rln-Bb-Qmf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -197,8 +208,8 @@
                         <constraints>
                             <constraint firstItem="CJC-zv-XrD" firstAttribute="centerY" secondItem="d4C-h8-vVp" secondAttribute="centerY" id="Stj-LW-QNq"/>
                             <constraint firstItem="CJC-zv-XrD" firstAttribute="centerX" secondItem="d4C-h8-vVp" secondAttribute="centerX" id="cn6-xz-08K"/>
-                            <constraint firstItem="CJC-zv-XrD" firstAttribute="leading" secondItem="d4C-h8-vVp" secondAttribute="leadingMargin" id="m3E-9U-5m5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CJC-zv-XrD" secondAttribute="trailing" id="xBf-TX-UcI"/>
+                            <constraint firstItem="CJC-zv-XrD" firstAttribute="leading" secondItem="d4C-h8-vVp" secondAttribute="leading" id="m3E-9U-5m5"/>
+                            <constraint firstAttribute="trailing" secondItem="CJC-zv-XrD" secondAttribute="trailing" id="xBf-TX-UcI"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -209,12 +220,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rne-C5-r3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="-273"/>
+            <point key="canvasLocation" x="145" y="-299"/>
         </scene>
-        <!--Auth Signin Child View Controller-->
+        <!--Auth Signup Child View Controller-->
         <scene sceneID="3kM-y7-dhb">
             <objects>
-                <viewController storyboardIdentifier="AuthSigninChildViewController" id="S1Q-BB-QLU" customClass="AuthSigninChildViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthSignupChildViewController" id="S1Q-BB-QLU" customClass="AuthSignupChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3bo-Uy-8pY"/>
                         <viewControllerLayoutGuide type="bottom" id="XSy-7h-feS"/>
@@ -224,10 +235,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfT-7v-TUB">
-                                <rect key="frame" x="16" y="0.0" width="343" height="106"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-Rl-BFK" userLabel="background view name field">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -236,14 +247,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nom (falcutatif)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d92-P2-RCL" userLabel="name text field">
-                                        <rect key="frame" x="4" y="4" width="335" height="17"/>
+                                        <rect key="frame" x="4" y="4" width="367" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-L4-jCO" userLabel="background view email field">
-                                        <rect key="frame" x="0.0" y="33" width="343" height="25"/>
+                                        <rect key="frame" x="0.0" y="33" width="375" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -252,23 +263,23 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail (obligatoire)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5K-nI-S8t" userLabel="email text field">
-                                        <rect key="frame" x="4" y="37" width="335" height="17"/>
+                                        <rect key="frame" x="4" y="37" width="367" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBf-kZ-oV2" userLabel="signin button">
-                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBf-kZ-oV2" userLabel="signup button">
+                                        <rect key="frame" x="0.0" y="76" width="375" height="30"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.16862745100000001" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="ME CONNECTER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="signinAction:" destination="S1Q-BB-QLU" eventType="touchUpInside" id="yEn-gc-loW"/>
+                                            <action selector="signupAction:" destination="S1Q-BB-QLU" eventType="touchUpInside" id="uLf-SU-ZT6"/>
                                         </connections>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NH2-NA-HsD">
-                                        <rect key="frame" x="307" y="81" width="20" height="20"/>
+                                        <rect key="frame" x="339" y="81" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -300,8 +311,8 @@
                         <constraints>
                             <constraint firstItem="WfT-7v-TUB" firstAttribute="centerX" secondItem="FUF-w9-N0Y" secondAttribute="centerX" id="06D-uF-fmn"/>
                             <constraint firstItem="WfT-7v-TUB" firstAttribute="centerY" secondItem="FUF-w9-N0Y" secondAttribute="centerY" id="IlA-f2-NtN"/>
-                            <constraint firstItem="WfT-7v-TUB" firstAttribute="leading" secondItem="FUF-w9-N0Y" secondAttribute="leadingMargin" id="Swb-UO-QeH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WfT-7v-TUB" secondAttribute="trailing" id="esC-DK-MLr"/>
+                            <constraint firstItem="WfT-7v-TUB" firstAttribute="leading" secondItem="FUF-w9-N0Y" secondAttribute="leading" id="Swb-UO-QeH"/>
+                            <constraint firstAttribute="trailing" secondItem="WfT-7v-TUB" secondAttribute="trailing" id="esC-DK-MLr"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -318,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXB-TS-NSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="-104"/>
+            <point key="canvasLocation" x="145" y="-130"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8tz-v1-mAS">
@@ -336,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehX-C5-dS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="322"/>
+            <point key="canvasLocation" x="972" y="287"/>
         </scene>
     </scenes>
     <resources>

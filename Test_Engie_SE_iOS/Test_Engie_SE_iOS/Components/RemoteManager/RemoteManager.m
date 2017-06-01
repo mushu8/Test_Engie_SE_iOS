@@ -8,13 +8,18 @@
 
 #import "RemoteManager.h"
 #import <AFNetworking/AFNetworking.h>
+#import "EngieUser+Parser.h"
 
-NSString *const RemoteManagerSigninWillDoNotification   = @"RemoteManagerSigninWillDoNotification";
-NSString *const RemoteManagerSigninFinishedNotification = @"RemoteManagerSigninFinishedNotification";
-NSString *const RemoteManagerSigninFailedNotification   = @"RemoteManagerSigninFailedNotification";
+NSString *const RemoteManagerSignupWillDoNotification   = @"RemoteManagerSignupWillDoNotification";
+NSString *const RemoteManagerSignupFinishedNotification = @"RemoteManagerSignupFinishedNotification";
+NSString *const RemoteManagerSignupFailedNotification   = @"RemoteManagerSignupFailedNotification";
+
 
 @interface RemoteManager()
-@property (nonatomic, strong) NSURLConnection *signinConnection;
+
+@property (nonatomic, strong) NSURLConnection *signupConnection;
+@property (nonatomic, strong) NSMutableData *responseData;
+
 @end
 
 
@@ -34,11 +39,18 @@ static RemoteManager *_sharedInstance = nil;
     return _sharedInstance;
 }
 
-#pragma mark - Signin service
+- (instancetype)init {
+    if (self = [super init]) {
+        _responseData = [NSMutableData new];
+    }
+    return self;
+}
 
-- (void)doSigninWithEmail:(NSString *)email andName:(NSString *)name {
+#pragma mark - Signup service
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninWillDoNotification object:self];
+- (void)doSignupWithEmail:(NSString *)email andName:(NSString *)name {
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupWillDoNotification object:self];
 
     NSString *URLString = @"http://jsonplaceholder.typicode.com/users";
     NSDictionary *parameters = @{@"user": @{@"email": email, @"name": name}};
@@ -49,28 +61,52 @@ static RemoteManager *_sharedInstance = nil;
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];
 
-    self.signinConnection = connection;
+    self.signupConnection = connection;
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFinishedNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupFinishedNotification object:self];
 }
 
 #pragma mark - NSURLConnectionDelegate
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [self.responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.responseData appendData:data];
+}
+
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    if (connection == self.signinConnection) {
+    if (connection == self.signupConnection) {
         //singin failure handler
-        [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFailedNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupFailedNotification object:self];
     }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 
-    if (connection == self.signinConnection) {
-        //singin success handler
+    if (connection == self.signupConnection) {
+        // singin success handler
+        // parse response and persist data
 
-        //TODO: parse response and persist data
+        NSError *jsonDataParsingError = nil;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&jsonDataParsingError];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSigninFinishedNotification object:self];
+        if (jsonDataParsingError != nil) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupFailedNotification object:self];
+        }
+        else {
+            NSError *jsonParsingError = nil;
+            BOOL jsonParsingSuccess = [EngieUser parseObject:jsonArray error:&jsonParsingError];
+
+            if (jsonParsingSuccess) {
+                //TODO: securely persist authetication data
+                [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupFinishedNotification object:self];
+            }
+            else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:RemoteManagerSignupFailedNotification object:self];
+            }
+        }
     }
 
 }

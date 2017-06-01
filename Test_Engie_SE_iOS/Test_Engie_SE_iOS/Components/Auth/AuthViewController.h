@@ -10,8 +10,8 @@
 
 @protocol AuthViewControllerDelegate <NSObject>
 
-- (void)displaySigninChildViewController;
 - (void)displaySignupChildViewController;
+- (void)displayVisitWebSiteChildViewController;
 
 @end
 

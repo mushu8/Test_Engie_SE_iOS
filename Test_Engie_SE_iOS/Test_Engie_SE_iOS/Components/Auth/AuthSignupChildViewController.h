@@ -1,5 +1,5 @@
 //
-//  AuthSigninViewController.h
+//  AuthSignupChildViewController.h
 //  Test_Engie_SE_iOS
 //
 //  Created by Alexandre Sagette on 01/06/2017.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AuthSigninChildViewController : UIViewController
+@interface AuthSignupChildViewController : UIViewController
 
 @end

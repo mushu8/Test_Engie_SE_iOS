@@ -9,17 +9,20 @@
 
 #import "AuthViewController.h"
 #import "AuthHomeChildViewController.h"
-#import "AuthSigninChildViewController.h"
+#import "AuthSignupChildViewController.h"
 #import "UIView+AutoLayout.h"
 
 
 
 @interface AuthViewController ()
 
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
+
 // child view controllers
+@property (strong, nonatomic) UIViewController *currentDisplayedChildViewController;
 @property (strong, nonatomic) AuthHomeChildViewController *authHomeChildViewController;
-@property (strong, nonatomic) AuthSigninChildViewController *authSigninChildViewController;
+@property (strong, nonatomic) AuthSignupChildViewController *authSignupChildViewController;
 
 @end
 
@@ -27,10 +30,12 @@
 
 #pragma mark - View life cycle
 
+static void * AuthViewControllerContext = &AuthViewControllerContext;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    [self addChildViewController:self.authHomeChildViewController];
+    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(currentDisplayedChildViewController)) options:NSKeyValueObservingOptionInitial context:AuthViewControllerContext];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,6 +48,10 @@
 
 - (IBAction)contactAgentAction:(id)sender {
     [self makeCallToAgent];
+}
+
+- (IBAction)backAction:(id)sender {
+    [self transitionToAuthHomeChildViewController];
 }
 
 #pragma mark - Business
@@ -61,6 +70,7 @@
     }
 }
 
+// setting up the authHomeViewController as a child view controller
 - (void)displayHomeAuthController: (UIViewController*)contentViewController {
 
     // preparing UI
@@ -81,6 +91,7 @@
                      }
                      completion:^(BOOL finished) {
                          if (finished) {
+                             self.currentDisplayedChildViewController = self.authHomeChildViewController;
                              contentViewController.view.userInteractionEnabled = YES;
                          }
                      }];
@@ -88,62 +99,77 @@
     [contentViewController didMoveToParentViewController:self];
 }
 
-- (void)transitionToSigninChildViewController {
-
-    UIViewController *oldVC = self.authHomeChildViewController;
-    UIViewController *newVC = self.signinAuthChildViewController;
+// child view controller transition to the authHomeViewController
+- (void)transitionToAuthHomeChildViewController {
+    UIViewController *oldVC = self.currentDisplayedChildViewController;
+    UIViewController *newVC = self.authHomeChildViewController;
 
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
 
-    newVC.view.frame = oldVC.view.bounds;
+    newVC.view.frame = self.contentView.bounds;
 
-    oldVC.view.alpha = 0;
+
     oldVC.view.userInteractionEnabled = NO;
     newVC.view.alpha = 0;
     newVC.view.userInteractionEnabled = NO;
 
     [self transitionFromViewController:oldVC toViewController:newVC
-                              duration: 0.25 options:0
+                              duration: 0.3 options:0
                             animations:^{
-                                // Animate the views to their final positions.
+                                oldVC.view.alpha = 0;
                                 newVC.view.alpha = 1;
                             }
                             completion:^(BOOL finished) {
                                 [oldVC removeFromParentViewController];
                                 [newVC.view setupConstraintsForEncapsulatingInParentView:self.contentView];
                                 [newVC didMoveToParentViewController:self];
+
+                                self.currentDisplayedChildViewController = newVC;
                                 newVC.view.userInteractionEnabled = YES;
                             }];
 }
 
-//- (void)transitionToSignupChildViewController {
-//
-//    UIViewController *oldVC = self.homeAuthChildViewController;
-//    UIViewController *newVC = self.signinAuthChildViewController;
-//
-//    [oldVC willMoveToParentViewController:nil];
-//    [self addChildViewController:newVC];
-//
-//    newVC.view.frame = oldVC.view.bounds;
-//
-//    oldVC.view.alpha = 0;
-//    oldVC.view.userInteractionEnabled = NO;
-//    newVC.view.alpha = 0;
-//    newVC.view.userInteractionEnabled = NO;
-//
-//    [self transitionFromViewController:oldVC toViewController:newVC
-//                              duration: 0.25 options:0
-//                            animations:^{
-//                                // Animate the views to their final positions.
-//                                newVC.view.alpha = 1;
-//                            }
-//                            completion:^(BOOL finished) {
-//                                [oldVC removeFromParentViewController];
-//                                [newVC didMoveToParentViewController:self];
-//                                newVC.view.userInteractionEnabled = YES;
-//                            }];
-//}
+// child view controller transition to the authSignupViewController
+- (void)transitionToSignupChildViewController {
+
+    UIViewController *oldVC = self.authHomeChildViewController;
+    UIViewController *newVC = self.authSignupChildViewController;
+
+    [oldVC willMoveToParentViewController:nil];
+    [self addChildViewController:newVC];
+
+    newVC.view.frame = self.contentView.bounds;
+
+    oldVC.view.userInteractionEnabled = NO;
+    newVC.view.alpha = 0;
+    newVC.view.userInteractionEnabled = NO;
+
+    [self transitionFromViewController:oldVC toViewController:newVC
+                              duration: 0.3 options:0
+                            animations:^{
+                                oldVC.view.alpha = 0;
+                                newVC.view.alpha = 1;
+                            }
+                            completion:^(BOOL finished) {
+                                [oldVC removeFromParentViewController];
+                                [newVC.view setupConstraintsForEncapsulatingInParentView:self.contentView];
+                                [newVC didMoveToParentViewController:self];
+
+                                self.currentDisplayedChildViewController = newVC;
+                                newVC.view.userInteractionEnabled = YES;
+                            }];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if (context == AuthViewControllerContext &&
+        [keyPath isEqualToString:NSStringFromSelector(@selector(currentDisplayedChildViewController))])
+    {
+        self.backButton.hidden  = (self.currentDisplayedChildViewController == self.authHomeChildViewController || self.currentDisplayedChildViewController == nil);
+    }
+}
 
 #pragma mark - Lazy loaders
 
@@ -153,21 +179,25 @@
     }
     return _authHomeChildViewController;
 }
-- (AuthSigninChildViewController *)signinAuthChildViewController {
-    if (_authSigninChildViewController == nil) {
-        _authSigninChildViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthSigninChildViewController"];
+- (AuthSignupChildViewController *)authSignupChildViewController {
+    if (_authSignupChildViewController == nil) {
+        _authSignupChildViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthSignupChildViewController"];
     }
-    return _authSigninChildViewController;
+    return _authSignupChildViewController;
 }
 
 #pragma mark - AuthViewControllerDelegate
 
-- (void)displaySigninChildViewController {
-    [self transitionToSigninChildViewController];
+- (void)displaySignupChildViewController {
+    [self transitionToSignupChildViewController];
 }
 
-- (void)displaySignupChildViewController {
-    
+
+#define INFO_PLIST_ENGIE_URL @"INFO_PLIST_ENGIE_URL"
+
+- (void)displayVisitWebSiteChildViewController {
+    NSString *urlString = [[NSBundle mainBundle] objectForInfoDictionaryKey:INFO_PLIST_ENGIE_URL];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 }
 
 @end

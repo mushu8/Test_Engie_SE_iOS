@@ -23,7 +23,7 @@
     [window insertSubview:secondVCView belowSubview:firstVCView];
 
     // Animate the transition.
-    [UIView animateWithDuration:0.4
+    [UIView animateWithDuration:0.3
                      animations:^{
                          firstVCView.alpha = 0;
                      }

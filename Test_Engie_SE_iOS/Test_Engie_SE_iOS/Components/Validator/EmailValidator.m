@@ -8,6 +8,8 @@
 
 #import "EmailValidator.h"
 
+NSString  *const EmailValidatorDomain = @"EmailValidator";
+
 @implementation EmailValidator
 
 #pragma mark - Singleton pattern
@@ -24,14 +26,25 @@ static EmailValidator *_sharedInstance = nil;
     return _sharedInstance;
 }
 
-- (BOOL)validateEmail:(NSString *)checkString {
+- (BOOL)validateEmail:(NSString *)checkString withError:(NSError **)error {
+
+    if (checkString.length == 0) {
+        *error = [NSError errorWithDomain:EmailValidatorDomain code:EmailValidatorErrorCodeEmptyEmail userInfo:nil];
+        return NO;
+    }
+
     BOOL stricterFilter = YES;
     NSString *stricterFilterString = @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
     NSString *laxString = @"^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$";
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:checkString];
 
+    BOOL result = [emailTest evaluateWithObject:checkString];
+    if (result == NO) {
+        *error = [NSError errorWithDomain:EmailValidatorDomain code:EmailValidatorErrorCodeNotAnEmail userInfo:nil];
+    }
+
+    return result;
 }
 
 @end

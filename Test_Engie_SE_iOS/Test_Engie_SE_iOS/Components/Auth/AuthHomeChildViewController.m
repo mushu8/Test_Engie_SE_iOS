@@ -24,12 +24,12 @@
 
 #pragma mark - IBActions
 
-- (IBAction)signinAction:(id)sender {
-    [self.authHomeDelegate displaySigninChildViewController];
-}
-
 - (IBAction)signupAction:(id)sender {
     [self.authHomeDelegate displaySignupChildViewController];
+}
+
+- (IBAction)visitWebSiteAction:(id)sender {
+    [self.authHomeDelegate displayVisitWebSiteChildViewController];
 }
 
 @end

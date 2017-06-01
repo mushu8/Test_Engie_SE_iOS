@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const RemoteManagerSigninWillDoNotification;
-extern NSString *const RemoteManagerSigninFinishedNotification;
-extern NSString *const RemoteManagerSigninFailedNotification;
+extern NSString *const RemoteManagerSignupWillDoNotification;
+extern NSString *const RemoteManagerSignupFinishedNotification;
+extern NSString *const RemoteManagerSignupFailedNotification;
 
 @interface RemoteManager : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)doSigninWithEmail:(NSString *)email andName:(NSString *)name;
+- (void)doSignupWithEmail:(NSString *)email andName:(NSString *)name;
 
 @end

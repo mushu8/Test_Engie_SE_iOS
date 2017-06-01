@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const EmailValidatorDomain;
+
+typedef NS_ENUM(NSInteger, EmailValidatorErrorCode) {
+    EmailValidatorErrorCodeEmptyEmail = 0,
+    EmailValidatorErrorCodeNotAnEmail = 1
+};
+
 @interface EmailValidator : NSObject
 
 + (instancetype)sharedInstance;
 
-- (BOOL)validateEmail:(NSString *)checkString;
+- (BOOL)validateEmail:(NSString *)checkString withError:(NSError **)error;
 
 @end
