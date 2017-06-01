@@ -1,22 +1,22 @@
 //
-//  HomeAuthViewController.m
+//  AuthSigninViewController.m
 //  Test_Engie_SE_iOS
 //
-//  Created by Alexandre Sagette on 31/05/2017.
+//  Created by Alexandre Sagette on 01/06/2017.
 //  Copyright © 2017 Alexandre Sagette. All rights reserved.
 //
 
-#import "HomeAuthViewController.h"
+#import "AuthSigninChildViewController.h"
 
-@interface HomeAuthViewController ()
+@interface AuthSigninChildViewController ()
 
 @end
 
-@implementation HomeAuthViewController
+@implementation AuthSigninChildViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

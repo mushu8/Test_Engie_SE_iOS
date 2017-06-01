@@ -16,12 +16,8 @@
     UIView *firstVCView    = self.sourceViewController.view;
     UIView *secondVCView   = self.destinationViewController.view;
 
-    // screen width and height.
-    CGFloat screenWidth     = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight    = [UIScreen mainScreen].bounds.size.height;
-
     // Specify the initial position of the destination view.
-    secondVCView.frame = CGRectMake(0.0, 0.0, screenWidth, screenHeight);
+    secondVCView.frame = firstVCView.bounds;
 
     UIWindow *window = [UIApplication sharedApplication ].keyWindow;
     [window insertSubview:secondVCView belowSubview:firstVCView];
@@ -37,4 +33,5 @@
                                                                completion:nil];
                      }];
 }
+
 @end

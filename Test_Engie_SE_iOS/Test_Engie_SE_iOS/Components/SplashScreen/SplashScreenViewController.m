@@ -19,8 +19,6 @@
 
 @implementation SplashScreenViewController
 
-#define TO_HOME_SEGUE_IDENTIFIER @"SplashToHomeAuthSegueIdentifier"
-
 #pragma mark - View life cycle
 
 - (void)viewDidLoad {
@@ -52,6 +50,8 @@
 }
 
 #pragma mark - Navigation
+
+#define TO_HOME_SEGUE_IDENTIFIER @"SplashToHomeAuthSegueIdentifier"
 
 - (void)showHomeAuthViewController {
     [self performSegueWithIdentifier:TO_HOME_SEGUE_IDENTIFIER sender:self];

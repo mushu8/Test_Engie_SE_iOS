@@ -1,3 +1,8 @@
+// Home Auth VC
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "WcB-Wu-6Yp"; */
-"WcB-Wu-6Yp.text" = "Label";
+/* Class = "UILabel"; text = ""; ObjectID = "WcB-Wu-6Yp"; */
+"WcB-Wu-6Yp.text" = "Contact an agent 09 69 399 993\n(free call)";
+"A04-81-hEw.title" = "I ALREADY HAVE AN ELEC WEEKEND+ ACCOUNT";
+"f7U-3x-ITp" = "I WANT TO JOIN ELEC WEEKEND+";
+
+"HomeAuthVC.contactAgent.tel" = "+33969399993";
