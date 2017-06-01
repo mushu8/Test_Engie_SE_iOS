@@ -29,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+//    [self addChildViewController:self.authHomeChildViewController];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,7 +65,7 @@
 
     // preparing UI
     contentViewController.view.alpha = 0;
-//    contentViewController.view.userInteractionEnabled = NO;
+    contentViewController.view.userInteractionEnabled = NO;
 
     // setting up UI
     [contentViewController willMoveToParentViewController:self];
@@ -79,7 +81,7 @@
                      }
                      completion:^(BOOL finished) {
                          if (finished) {
-//                             contentViewController.view.userInteractionEnabled = YES;
+                             contentViewController.view.userInteractionEnabled = YES;
                          }
                      }];
 
@@ -97,9 +99,9 @@
     newVC.view.frame = oldVC.view.bounds;
 
     oldVC.view.alpha = 0;
-//    oldVC.view.userInteractionEnabled = NO;
+    oldVC.view.userInteractionEnabled = NO;
     newVC.view.alpha = 0;
-//    newVC.view.userInteractionEnabled = NO;
+    newVC.view.userInteractionEnabled = NO;
 
     [self transitionFromViewController:oldVC toViewController:newVC
                               duration: 0.25 options:0
@@ -109,6 +111,7 @@
                             }
                             completion:^(BOOL finished) {
                                 [oldVC removeFromParentViewController];
+                                [newVC.view setupConstraintsForEncapsulatingInParentView:self.contentView];
                                 [newVC didMoveToParentViewController:self];
                                 newVC.view.userInteractionEnabled = YES;
                             }];
